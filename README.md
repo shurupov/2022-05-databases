@@ -9,3 +9,4 @@ Certificate: (will be later)
 ## Modules/Homeworks
 
 - [Database design](01-design)
+- [Indexes and Constraints](02-indexes-constraints)
