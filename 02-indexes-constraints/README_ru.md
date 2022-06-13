@@ -31,23 +31,23 @@
 ---
 **citizen**
 
-| name           | type    | index type | constraint            | comments                   |
-|----------------|---------|------------|-----------------------|----------------------------|
-| id             | bigint  | index      | unique                | primary key, autoincrement |
-| full_name      | text    |            | not null              |                            |
-| short_name     | text    |            | not null              |                            |
-| phone_number   | text    |            |                       |                            |
-| telegram       | text    |            |                       |                            |
-| username       | text    |            | unique                |                            |
-| password       | text    |            |                       |                            |
-| salt           | text    |            |                       |                            |
+| name           | type    | index type | constraint        | comments                   |
+|----------------|---------|------------|-------------------|----------------------------|
+| id             | bigint  | index      | unique, not null  | primary key, autoincrement |
+| full_name      | text    |            | not null          |                            |
+| short_name     | text    |            | not null          |                            |
+| phone_number   | text    |            |                   |                            |
+| telegram       | text    |            |                   |                            |
+| username       | text    |            | unique            |                            |
+| password       | text    |            |                   |                            |
+| salt           | text    |            |                   |                            |
 
 ---
 **ownership**
 
 | name           | type    | index type | constraint            | comments                   |
 |----------------|---------|------------|-----------------------|----------------------------|
-| id             | bigint  | index      | unique                | primary key, autoincrement |
+| id             | bigint  | index      | unique, not null      | primary key, autoincrement |
 | apartment_id   | bigint  | index      | not null, foreign key | apartment(id)              |
 | citizen_id     | bigint  | index      | not null, foreign key | citizen(id)                |
 | relation_type  | enum    |            | not null              | (owner, renter)            |
@@ -60,7 +60,7 @@
 
 | name        | type   | index type | constraint            | comments                   |
 |-------------|--------|------------|-----------------------|----------------------------|
-| id          | bigint | index      | unique                | primary key, autoincrement |
+| id          | bigint | index      | unique, not null      | primary key, autoincrement |
 | building_id | bigint | index      | not null, foreign key | building(id)               |
 | author_id   | bigint | index      | not null, foreign key | citizen(id)                |
 | title       | text   |            | not null              |                            |
@@ -72,7 +72,7 @@
 
 | name      | type   | index type | constraint            | comments                   |
 |-----------|--------|------------|-----------------------|----------------------------|
-| id        | bigint | index      | unique                | primary key, autoincrement |
+| id        | bigint | index      | unique, not null      | primary key, autoincrement |
 | issue_id  | bigint | index      | not null, foreign key | issue(id)                  |
 | author_id | bigint | index      | not null, foreign key | citizen(id)                |
 | content   | text   |            | not null              |                            |
@@ -83,7 +83,7 @@
 
 | name      | type   | index type | constraint            | comments                   |
 |-----------|--------|------------|-----------------------|----------------------------|
-| id        | bigint | index      | unique                | primary key, autoincrement |
+| id        | bigint | index      | unique, not null      | primary key, autoincrement |
 | issue_id  | bigint | index      | not null, foreign key | issue(id)                  |
 | author_id | bigint | index      | not null, foreign key | citizen(id)                |
 | title     | text   |            | not null              |                            |
@@ -95,7 +95,7 @@
 
 | name          | type    | index type | constraint            | comments                   |
 |---------------|---------|------------|-----------------------|----------------------------|
-| id            | bigint  | index      | unique                | primary key, autoincrement |
+| id            | bigint  | index      | unique, not null      | primary key, autoincrement |
 | building_id   | bigint  | index      | not null, foreign key | building(id)               |
 | start_date    | date    |            | not null              |                            |
 | end_date      | date    |            | not null              |                            |
@@ -107,7 +107,7 @@
 
 | name            | type    | index type | constraint            | comments                   |
 |-----------------|---------|------------|-----------------------|----------------------------|
-| id              | bigint  | index      | unique                | primary key, autoincrement |
+| id              | bigint  | index      | unique, not null      | primary key, autoincrement |
 | voting_id       | bigint  | index      | not null, foreign key | voting(id)                 |
 | title           | text    |            | not null              |                            |
 | content         | text    |            | not null              |                            |
@@ -120,7 +120,7 @@
 
 | name      | type   | index type | constraint            | comments                   |
 |-----------|--------|------------|-----------------------|----------------------------|
-| id        | bigint | index      | unique                | primary key, autoincrement |
+| id        | bigint | index      | unique, not null      | primary key, autoincrement |
 | voting_id | bigint | index      | not null, foreign key | voting(id)                 |
 | topic_id  | bigint | index      | not null, foreign key | voting_topic(id)           |
 | voter_id  | bigint | index      | not null, foreign key | citizen(id)                |
