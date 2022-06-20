@@ -1,6 +1,6 @@
 # Databases Course Repo
 
-Course: [Databases](https://otus.ru/lessons/databases/)
+Course: [Databases](https://otus.ru/lessons/subd/)
 
 Student: Evgeny Shurupov
 
