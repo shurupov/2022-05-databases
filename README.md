@@ -10,4 +10,4 @@ Certificate: (will be later)
 
 - [Database design](01-design)
 - [Indexes and Constraints](02-indexes-constraints)
-- [Installing postgres](03-postgres-install)
+- [Installing postgres](06-postgres-install)
