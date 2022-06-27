@@ -2,7 +2,7 @@
 
 [English version](.)
 
-![Модель базы данных](../02-indexes-constraints/database-model-02.png)
+![Модель базы данных](database-model-07.png)
 
 [Интерактивная модель](https://drawsql.app/community-services/diagrams/community-of-building-owners/)
 

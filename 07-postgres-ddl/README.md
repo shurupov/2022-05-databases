@@ -2,7 +2,7 @@
 
 [Russian version](README_ru.md)
 
-![Database model](../02-indexes-constraints/database-model-02.png)
+![Database model](database-model-07.png)
 
 [Interactive model](https://drawsql.app/community-services/diagrams/community-of-building-owners/)
 
