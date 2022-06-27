@@ -1,6 +1,6 @@
 # Установка и запуск БД postgres
 
-[Russian version](README_ru.md)
+[English version](.)
 
 1.  Установка и запуск postgres-сервера
 
