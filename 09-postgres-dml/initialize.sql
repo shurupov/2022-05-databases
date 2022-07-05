@@ -72,23 +72,14 @@ insert into voting.voting_topic (voting_id, title, content) values
 insert into voting.voting_vote (voting_id, topic_id, voter_id, value) values
     (1, 1,  1, 'for'),
     (1, 1,  2, 'for'),
-    (1, 1,  3, 'against'),
     (1, 1,  4, 'forgo'),
     (1, 1,  5, 'for'),
-    (1, 1,  6, 'for'),
-    (1, 1,  7, 'for'),
     (1, 2,  1, 'forgo'),
     (1, 2,  2, 'against'),
-    (1, 2,  3, 'against'),
     (1, 2,  4, 'forgo'),
     (1, 2,  5, 'for'),
-    (1, 2,  6, 'forgo'),
-    (1, 2,  7, 'for'),
     (1, 3,  1, 'forgo'),
     (1, 3,  2, 'for'),
-    (1, 3,  3, 'for'),
     (1, 3,  4, 'forgo'),
-    (1, 3,  5, 'against'),
-    (1, 3,  6, 'forgo'),
-    (1, 3,  7, 'for');
+    (1, 3,  5, 'against');
 

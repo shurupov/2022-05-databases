@@ -6,6 +6,8 @@
 
 [Интерактивная модель](https://drawsql.app/community-services/diagrams/community-of-building-owners/)
 
+Чтобы проверить скрипты ниже, вы можете выполнить [скрипт инициализации данных](initialize.sql)
+
 ## 1. Выборка с помощью регулярных выражений
 ```postgresql
 select count(*) from homeowners.apartment_user where full_name ~ '([Сс]ер([её][жг]а|гей))';
@@ -73,3 +75,17 @@ from (
 where vtt.id = calculated.topic_id;
 ```
 Запрос вычисляет и сохраняет результаты голосования по каждой теме для голосования с id=1.
+
+## 4. Удаление данных используя `delete`, `using` and `join`
+```postgresql
+delete from ownership where ownership_type_id not in (1,2,3);
+
+delete from apartment_user auu
+using (
+    select au.* from apartment_user au
+    left join ownership o on au.id = o.user_id
+    where o.id is null
+) not_owner
+where auu.id = not_owner.id;
+```
+Запрос удаляет всех пользователей, кто не является собственником помещений.

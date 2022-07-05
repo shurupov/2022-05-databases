@@ -6,13 +6,15 @@
 
 [Interactive model](https://drawsql.app/community-services/diagrams/community-of-building-owners/)
 
+To check queries below you can execute [initialization data script](initialize.sql)
+
 ## 1. Select with regexp
 ```postgresql
 select count(*) from homeowners.apartment_user where full_name ~ '([Сс]ер([её][жг]а|гей))';
 ```
 The query searches an amount of users having name `Сергей` (Sergey).
 
-## 2. Selecting with left join, inner join
+## 2. Selecting with `left join`, `inner join`
 ```postgresql
 select au.id, au.full_name, ot.name, o.share, at.name, a.number, a.floor, a.square
 from homeowners.apartment_user au
@@ -73,3 +75,17 @@ from (
 where vtt.id = calculated.topic_id;
 ```
 The query calculates and saved voting results for every topic ov voting with id=1
+
+## 4. Removing data using `delete`, `using` and `join`
+```postgresql
+delete from ownership where ownership_type_id not in (1,2,3);
+
+delete from apartment_user auu
+using (
+    select au.* from apartment_user au
+    left join ownership o on au.id = o.user_id
+    where o.id is null
+) not_owner
+where auu.id = not_owner.id;
+```
+The query removes all users who are not owners of any apartment.
