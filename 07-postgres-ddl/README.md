@@ -129,11 +129,6 @@ create table voting.voting_vote (
     voting_id int references voting.voting(id) not null,
     topic_id int references voting.voting_topic(id) not null,
     voter_id int references homeowners.apartment_user(id) not null,
-    title varchar(255) not null,
-    content text,
-    for_percent numeric(2),
-    against_percent numeric(2),
-    forgo_percent numeric(2),
     value voting.vote_type
 );
 ```
