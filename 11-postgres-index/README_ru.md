@@ -2,13 +2,14 @@
 
 [Английская версия](.)
 
-[Интерактивная модель](https://drawsql.app/community-services/diagrams/community-of-building-owners/)
+[Интерактивная модель БД](https://drawsql.app/community-services/diagrams/community-of-building-owners/)
 
 ## 1. Создание индекса
 ```postgresql
 drop index if exists homeowners.ownership_user_id_idx;
 create index ownership_user_id_idx on homeowners.ownership(user_id);
 ```
+Этот индекс позволяет делать выборку в `ownership` по `user_id` быстрее.
 
 ## 2. Select с использованием созданного индекса
 ```postgresql
@@ -33,20 +34,21 @@ where user_id = 1;
 drop index if exists homeowners.full_name_text_idx;
 create index full_name_text_idx on homeowners.apartment_user using gin (to_tsvector('russian', full_name));
 ```
+Индекс позволяет искать пользователей по частям ФИО.
+
+Пытялся создать с `using gin (full_name)`, но это у меня не заработало. Загуглил и исправил запрос на указанный.
 
 ## 4. Создание индекса на часть таблицы
 ```postgresql
 drop index if exists homeowners.ownership_apt_id_idx;
 create index ownership_apt_id_idx on homeowners.ownership(apartment_id) where ownership_type_id != 4;
 ```
+Этот индекс делает выборку `ownership` быстрее по полю `apartment_id` но только для реальных собственников.
 
 ## 5. Создание индекса на несколько полей
 ```postgresql
 drop index if exists voting.vote_voting_id_voter_id_idx;
 create index vote_voting_id_voter_id_idx on voting.voting_vote(voting_id, voter_id);
 ```
+Этот индекс обеспечивает более быструю выборку голосов (`vote`) при фильтрации по обоим полям `vote_id` и `voter_id`.
 
-## 5. Добавление комментариев к индексам
-```postgresql
-
-```
