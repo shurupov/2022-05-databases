@@ -12,12 +12,12 @@ services:
     volumes:
       - "./postgresql-master.conf:/etc/postgresql/14/main/postgresql.conf"
 
-#  postgres-slave:
-#    container_name: postgres-master
-#    image: library/postgres:14.4
-#    environment:
-#      POSTGRES_USER: postgresuser
-#      POSTGRES_PASSWORD: postgrespassword
-#      POSTGRES_DB: postgresdb
-#    ports:
-#      - 5433:5432
+  postgres-slave:
+    container_name: postgres-slave
+    image: library/postgres:14.4
+    environment:
+      POSTGRES_USER: postgresuser
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: postgresdb
+    ports:
+      - 5433:5432
