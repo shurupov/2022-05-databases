@@ -1,4 +1,4 @@
-# Databases MySQL architecture
+# MySQL Database architecture
 
 [Russian version](README_ru.md)
 
