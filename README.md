@@ -16,3 +16,6 @@ Certificate: (will be later)
   - [Postgres DML: insert, update, delete, select](09-postgres-dml)
   - [Postgres Indexes](11-postgres-index)
   - [Postgres DML: Aggregation, sorting, CTE, analytic functions](12-postgres-aggreagation-sortin-cte-analytics)
+- MySQL
+  - [MySQL Architecture](21-mysql-architecture)
+  - [MySQL Data Types](22-mysql-data-types)
