@@ -19,3 +19,4 @@ Certificate: (will be later)
 - MySQL
   - [MySQL Architecture](21-mysql-architecture)
   - [MySQL Data Types](22-mysql-data-types)
+  - [MySQL DML: insert, update, delete, select](24-mysql-dml)
